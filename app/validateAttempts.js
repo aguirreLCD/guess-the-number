@@ -3,8 +3,20 @@ function validateAttempts(attemptedNumber) {
 
   if (invalidAttempt(number)) {
     // console.log("Invalid value");
-    guessElement.innerHTML += `<div>Invalid value</div>`;
-    return;
+
+    if (attemptedNumber.toUpperCase() === "GAME OVER") {
+      document.body.innerHTML = `
+      <h2>Game Over!!!</h2>
+      <h3>Press the button to play again</h3>
+      <button id="play-again" class="btn-play">Play again</button>
+
+      
+      `;
+      document.body.style.backgroundColor = "black";
+    } else {
+      guessElement.innerHTML += `<div>Invalid value</div>`;
+      return;
+    }
   }
 
   if (validateRange(number)) {
